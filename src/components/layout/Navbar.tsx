@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Activity, Phone, User, Stethoscope, LogOut } from "lucide-react";
+import { Menu, X, Activity, Phone, User, Stethoscope, LogOut, Calendar, Pill, Brain } from "lucide-react";
 import { NeonButton } from "@/components/ui/NeonButton";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/contexts/AuthContext";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/patient", label: "Patient Portal" },
-  { href: "/doctor", label: "Doctor Portal" },
+  { href: "/patient", label: "Patient" },
+  { href: "/doctor", label: "Doctor" },
+  { href: "/appointments", label: "Appointments", icon: Calendar },
+  { href: "/pharmacy", label: "Pharmacy", icon: Pill },
+  { href: "/symptom-checker", label: "Symptoms", icon: Brain },
   { href: "/emergency", label: "Emergency", icon: Phone },
 ];
 

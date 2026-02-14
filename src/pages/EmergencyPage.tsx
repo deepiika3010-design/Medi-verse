@@ -86,7 +86,7 @@ export default function EmergencyPage() {
                     <p className="font-display text-3xl font-bold text-red-400">1-800-MEDI-911</p>
                   </div>
                 </div>
-                <NeonButton variant="emergency" size="lg">
+                <NeonButton variant="emergency" size="lg" onClick={() => window.open("tel:18009119111")}>
                   <Phone className="w-5 h-5" />
                   Call Emergency
                 </NeonButton>

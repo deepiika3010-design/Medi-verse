@@ -17,21 +17,21 @@ const features = [
     icon: Video,
     title: "Video Consultations",
     description: "Face-to-face doctor visits from anywhere. HD quality with screen sharing.",
-    link: "/patient",
+    link: "/appointments",
     color: "cyan" as const,
   },
   {
     icon: Phone,
     title: "Voice Calls",
     description: "Quick voice consultations when you're on the go. Crystal clear audio.",
-    link: "/patient",
+    link: "/appointments",
     color: "purple" as const,
   },
   {
     icon: MessageSquare,
     title: "Live Chat",
     description: "Instant messaging with healthcare professionals. Share images & files.",
-    link: "/patient",
+    link: "/appointments",
     color: "cyan" as const,
   },
   {
@@ -45,7 +45,7 @@ const features = [
     icon: Pill,
     title: "Medicine Delivery",
     description: "Upload prescriptions, get medicines delivered. Genuine & certified.",
-    link: "/patient",
+    link: "/pharmacy",
     color: "green" as const,
   },
   {
