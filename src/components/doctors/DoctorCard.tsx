@@ -74,16 +74,16 @@ export function DoctorCard({ name, specialty, hospital, rating, reviews, availab
 
         {/* Action Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-2 mt-4">
-          <NeonButton variant="primary" size="sm" className="flex-1 min-w-[100px]">
-            <Video className="w-4 h-4" />
+          <NeonButton variant="primary" size="sm" className="flex-1 min-w-[80px]">
+            <Video className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             <span className="hidden xs:inline">Video</span>
           </NeonButton>
-          <NeonButton variant="outline" size="sm" className="flex-1 min-w-[100px]">
-            <Phone className="w-4 h-4" />
+          <NeonButton variant="outline" size="sm" className="flex-1 min-w-[80px]" onClick={() => window.open("tel:+18001234567")}>
+            <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             <span className="hidden xs:inline">Call</span>
           </NeonButton>
-          <NeonButton variant="ghost" size="sm" className="flex-1 min-w-[100px]">
-            <MessageSquare className="w-4 h-4" />
+          <NeonButton variant="ghost" size="sm" className="flex-1 min-w-[80px]">
+            <MessageSquare className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             <span className="hidden xs:inline">Chat</span>
           </NeonButton>
         </div>
