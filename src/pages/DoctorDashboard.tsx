@@ -5,6 +5,7 @@ import {
   Search, Bell, ChevronRight, UserCheck, AlertCircle,
   FileText, TrendingUp, Star
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { GlassCard } from "@/components/ui/GlassCard";
@@ -116,10 +117,12 @@ export default function DoctorDashboard() {
               >
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="font-display text-xl font-semibold">Today's Schedule</h2>
-                  <NeonButton variant="outline" size="sm">
-                    <Calendar className="w-4 h-4" />
-                    View Calendar
-                  </NeonButton>
+                  <Link to="/appointments">
+                    <NeonButton variant="outline" size="sm">
+                      <Calendar className="w-4 h-4" />
+                      View Calendar
+                    </NeonButton>
+                  </Link>
                 </div>
                 
                 <div className="space-y-3">
@@ -209,15 +212,17 @@ export default function DoctorDashboard() {
                 <h2 className="font-display text-xl font-semibold mb-4">Quick Actions</h2>
                 <div className="grid grid-cols-2 gap-3">
                   {[
-                    { icon: Video, label: "Start Call" },
-                    { icon: FileText, label: "Write Rx" },
-                    { icon: Users, label: "Patients" },
-                    { icon: Calendar, label: "Schedule" },
+                    { icon: Video, label: "Start Call", link: "/appointments" },
+                    { icon: FileText, label: "Write Rx", link: "/patient" },
+                    { icon: Users, label: "Patients", link: "/patient" },
+                    { icon: Calendar, label: "Schedule", link: "/appointments" },
                   ].map((action, index) => (
-                    <GlassCard key={index} className="p-4 text-center cursor-pointer">
-                      <action.icon className="w-6 h-6 mx-auto mb-2 text-primary" />
-                      <span className="text-sm font-medium">{action.label}</span>
-                    </GlassCard>
+                    <Link to={action.link} key={index}>
+                      <GlassCard className="p-4 text-center cursor-pointer">
+                        <action.icon className="w-6 h-6 mx-auto mb-2 text-primary" />
+                        <span className="text-sm font-medium">{action.label}</span>
+                      </GlassCard>
+                    </Link>
                   ))}
                 </div>
               </motion.section>
@@ -230,7 +235,7 @@ export default function DoctorDashboard() {
               >
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="font-display text-xl font-semibold">Recent Patients</h2>
-                  <button className="text-sm text-primary hover:underline">View All</button>
+                  <Link to="/patient" className="text-sm text-primary hover:underline">View All</Link>
                 </div>
                 <div className="space-y-3">
                   {recentPatients.map((patient, index) => (
@@ -265,9 +270,11 @@ export default function DoctorDashboard() {
                   <p className="text-sm text-muted-foreground mb-3">
                     2 patients waiting for emergency consultation
                   </p>
-                  <NeonButton variant="emergency" size="sm" className="w-full">
-                    View Emergency Queue
-                  </NeonButton>
+                  <Link to="/emergency" className="w-full">
+                    <NeonButton variant="emergency" size="sm" className="w-full">
+                      View Emergency Queue
+                    </NeonButton>
+                  </Link>
                 </GlassCard>
               </motion.section>
             </div>

@@ -108,7 +108,7 @@ export function HeroSection() {
                 Emergency Call
               </NeonButton>
             </Link>
-            <Link to="/patient">
+            <Link to="/book-appointment">
               <NeonButton variant="primary" size="lg">
                 <Stethoscope className="w-5 h-5" />
                 Start Consultation

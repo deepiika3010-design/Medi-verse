@@ -113,15 +113,19 @@ export default function AppointmentsPage() {
                         <span>Next: <span className="text-green-400 font-medium">{doctor.nextSlot}</span></span>
                       </div>
                       <div className="flex gap-2">
-                        <NeonButton variant="primary" size="sm" className="flex-1">
-                          <Video className="w-3.5 h-3.5" /> Video
-                        </NeonButton>
+                        <Link to="/book-appointment" className="flex-1">
+                          <NeonButton variant="primary" size="sm" className="w-full">
+                            <Video className="w-3.5 h-3.5" /> Book
+                          </NeonButton>
+                        </Link>
                         <NeonButton variant="outline" size="sm" className="flex-1" onClick={() => window.open("tel:+18001234567")}>
                           <Phone className="w-3.5 h-3.5" /> Call
                         </NeonButton>
-                        <NeonButton variant="ghost" size="sm" className="flex-1">
-                          <MessageSquare className="w-3.5 h-3.5" /> Chat
-                        </NeonButton>
+                        <Link to="/appointments" className="flex-1">
+                          <NeonButton variant="ghost" size="sm" className="w-full">
+                            <MessageSquare className="w-3.5 h-3.5" /> Chat
+                          </NeonButton>
+                        </Link>
                       </div>
                     </GlassCard>
                   </motion.div>

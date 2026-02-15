@@ -65,7 +65,7 @@ export function CTASection() {
                   Emergency Call Now
                 </NeonButton>
               </Link>
-              <Link to="/patient">
+              <Link to="/book-appointment">
                 <NeonButton variant="outline" size="lg">
                   Schedule Consultation
                   <ArrowRight className="w-5 h-5" />
