@@ -8,12 +8,12 @@ import { useAuth } from "@/contexts/AuthContext";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/patient", label: "Patient" },
-  { href: "/doctor", label: "Doctor" },
+  { href: "/services", label: "Services" },
   { href: "/appointments", label: "Appointments", icon: Calendar },
   { href: "/pharmacy", label: "Pharmacy", icon: Pill },
   { href: "/symptom-checker", label: "Symptoms", icon: Brain },
   { href: "/emergency", label: "Emergency", icon: Phone },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -99,7 +99,7 @@ export function Navbar() {
                       Login
                     </NeonButton>
                   </Link>
-                  <Link to="/auth">
+                  <Link to="/book-appointment">
                     <NeonButton size="sm">
                       <Stethoscope className="w-4 h-4" />
                       Get Started
@@ -165,7 +165,7 @@ export function Navbar() {
                         Login
                       </NeonButton>
                     </Link>
-                    <Link to="/auth" onClick={() => setIsOpen(false)}>
+                    <Link to="/book-appointment" onClick={() => setIsOpen(false)}>
                       <NeonButton size="sm" className="w-full">
                         Get Started
                       </NeonButton>

@@ -12,12 +12,12 @@ import { NeonButton } from "@/components/ui/NeonButton";
 import { Link } from "react-router-dom";
 
 const quickActions = [
-  { icon: Video, label: "Video Call", color: "cyan", description: "Start video consultation" },
-  { icon: Phone, label: "Voice Call", color: "purple", description: "Quick voice consultation" },
-  { icon: MessageSquare, label: "Chat", color: "cyan", description: "Message a doctor" },
-  { icon: Ambulance, label: "Ambulance", color: "red", description: "Book emergency" },
-  { icon: Pill, label: "Medicines", color: "green", description: "Order medicines" },
-  { icon: Dumbbell, label: "Fitness", color: "purple", description: "Track fitness" },
+  { icon: Video, label: "Video Call", color: "cyan", description: "Start video consultation", link: "/appointments" },
+  { icon: Phone, label: "Voice Call", color: "purple", description: "Quick voice consultation", link: "/appointments" },
+  { icon: MessageSquare, label: "Chat", color: "cyan", description: "Message a doctor", link: "/appointments" },
+  { icon: Ambulance, label: "Ambulance", color: "red", description: "Book emergency", link: "/emergency" },
+  { icon: Pill, label: "Medicines", color: "green", description: "Order medicines", link: "/pharmacy" },
+  { icon: Dumbbell, label: "Fitness", color: "purple", description: "Track fitness", link: "/patient" },
 ];
 
 const upcomingAppointments = [
@@ -78,34 +78,35 @@ export default function PatientDashboard() {
             <h2 className="font-display text-xl font-semibold mb-4">Quick Actions</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
               {quickActions.map((action, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <GlassCard 
-                    className="cursor-pointer text-center p-4" 
-                    glowColor={action.color as "cyan" | "purple" | "red" | "green"}
+                <Link to={action.link} key={index}>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    <div className={`
-                      w-12 h-12 mx-auto rounded-xl flex items-center justify-center mb-3
-                      ${action.color === 'cyan' ? 'bg-cyan-500/20' : ''}
-                      ${action.color === 'purple' ? 'bg-purple-500/20' : ''}
-                      ${action.color === 'red' ? 'bg-red-500/20' : ''}
-                      ${action.color === 'green' ? 'bg-green-500/20' : ''}
-                    `}>
-                      <action.icon className={`
-                        w-6 h-6
-                        ${action.color === 'cyan' ? 'text-cyan-500' : ''}
-                        ${action.color === 'purple' ? 'text-purple-500' : ''}
-                        ${action.color === 'red' ? 'text-red-500' : ''}
-                        ${action.color === 'green' ? 'text-green-500' : ''}
-                      `} />
-                    </div>
-                    <h3 className="font-semibold text-sm mb-1">{action.label}</h3>
-                    <p className="text-xs text-muted-foreground">{action.description}</p>
-                  </GlassCard>
-                </motion.div>
+                    <GlassCard 
+                      className="cursor-pointer text-center p-4" 
+                      glowColor={action.color as "cyan" | "purple" | "red" | "green"}
+                    >
+                      <div className={`
+                        w-12 h-12 mx-auto rounded-xl flex items-center justify-center mb-3
+                        ${action.color === 'cyan' ? 'bg-cyan-500/20' : ''}
+                        ${action.color === 'purple' ? 'bg-purple-500/20' : ''}
+                        ${action.color === 'red' ? 'bg-red-500/20' : ''}
+                        ${action.color === 'green' ? 'bg-green-500/20' : ''}
+                      `}>
+                        <action.icon className={`
+                          w-6 h-6
+                          ${action.color === 'cyan' ? 'text-cyan-500' : ''}
+                          ${action.color === 'purple' ? 'text-purple-500' : ''}
+                          ${action.color === 'red' ? 'text-red-500' : ''}
+                          ${action.color === 'green' ? 'text-green-500' : ''}
+                        `} />
+                      </div>
+                      <h3 className="font-semibold text-sm mb-1">{action.label}</h3>
+                      <p className="text-xs text-muted-foreground">{action.description}</p>
+                    </GlassCard>
+                  </motion.div>
+                </Link>
               ))}
             </div>
           </motion.section>
@@ -121,7 +122,7 @@ export default function PatientDashboard() {
               >
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="font-display text-xl font-semibold">Health Metrics</h2>
-                  <button className="text-sm text-primary hover:underline">View All</button>
+                  <Link to="/patient" className="text-sm text-primary hover:underline">View All</Link>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {healthMetrics.map((metric, index) => (
@@ -181,9 +182,9 @@ export default function PatientDashboard() {
               >
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="font-display text-xl font-semibold">Appointments</h2>
-                  <button className="w-8 h-8 rounded-lg glass-card flex items-center justify-center hover:bg-primary/20 transition-colors">
+                  <Link to="/book-appointment" className="w-8 h-8 rounded-lg glass-card flex items-center justify-center hover:bg-primary/20 transition-colors">
                     <Plus className="w-4 h-4" />
-                  </button>
+                  </Link>
                 </div>
                 <div className="space-y-3">
                   {upcomingAppointments.map((apt, index) => (

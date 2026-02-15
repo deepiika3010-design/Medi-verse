@@ -3,30 +3,30 @@ import { Activity, Facebook, Twitter, Instagram, Linkedin, Mail, Phone } from "l
 
 const footerLinks = {
   Services: [
-    { label: "Video Consultation", href: "/patient" },
+    { label: "Video Consultation", href: "/appointments" },
     { label: "Emergency Services", href: "/emergency" },
-    { label: "Medicine Delivery", href: "/patient" },
+    { label: "Medicine Delivery", href: "/pharmacy" },
     { label: "Fitness Tracker", href: "/patient" },
   ],
   Company: [
-    { label: "About Us", href: "#" },
-    { label: "Careers", href: "#" },
-    { label: "Contact", href: "#" },
-    { label: "Blog", href: "#" },
+    { label: "About Us", href: "/services" },
+    { label: "All Services", href: "/services" },
+    { label: "Contact", href: "/contact" },
+    { label: "Book Appointment", href: "/book-appointment" },
   ],
-  Legal: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
-    { label: "Cookie Policy", href: "#" },
-    { label: "HIPAA Compliance", href: "#" },
+  "Quick Links": [
+    { label: "Symptom Checker", href: "/symptom-checker" },
+    { label: "Patient Dashboard", href: "/patient" },
+    { label: "Doctor Dashboard", href: "/doctor" },
+    { label: "Online Pharmacy", href: "/pharmacy" },
   ],
 };
 
 const socialLinks = [
-  { icon: Facebook, href: "#" },
-  { icon: Twitter, href: "#" },
-  { icon: Instagram, href: "#" },
-  { icon: Linkedin, href: "#" },
+  { icon: Facebook, href: "https://facebook.com" },
+  { icon: Twitter, href: "https://twitter.com" },
+  { icon: Instagram, href: "https://instagram.com" },
+  { icon: Linkedin, href: "https://linkedin.com" },
 ];
 
 export function Footer() {
@@ -53,6 +53,8 @@ export function Footer() {
                 <a
                   key={index}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-lg glass-card flex items-center justify-center hover:bg-primary/20 transition-colors"
                 >
                   <social.icon className="w-5 h-5 text-muted-foreground" />
@@ -92,6 +94,9 @@ export function Footer() {
               <Mail className="w-4 h-4" />
               support@mediverse.com
             </a>
+            <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              Contact Us
+            </Link>
           </div>
           <p className="text-sm text-muted-foreground">
             © 2025 MediVerse. All rights reserved.

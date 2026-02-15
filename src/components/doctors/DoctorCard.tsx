@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Star, Video, Phone, MessageSquare, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Star, Video, Phone, MessageSquare, MapPin, Calendar } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { NeonButton } from "@/components/ui/NeonButton";
 
@@ -40,6 +41,7 @@ export function DoctorCard({ name, specialty, hospital, rating, reviews, availab
                 src={image} 
                 alt={name}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
             <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
@@ -74,18 +76,22 @@ export function DoctorCard({ name, specialty, hospital, rating, reviews, availab
 
         {/* Action Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-2 mt-4">
-          <NeonButton variant="primary" size="sm" className="flex-1 min-w-[80px]">
-            <Video className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span className="hidden xs:inline">Video</span>
-          </NeonButton>
+          <Link to="/book-appointment" className="flex-1 min-w-[80px]">
+            <NeonButton variant="primary" size="sm" className="w-full">
+              <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span className="hidden xs:inline">Book</span>
+            </NeonButton>
+          </Link>
           <NeonButton variant="outline" size="sm" className="flex-1 min-w-[80px]" onClick={() => window.open("tel:+18001234567")}>
             <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             <span className="hidden xs:inline">Call</span>
           </NeonButton>
-          <NeonButton variant="ghost" size="sm" className="flex-1 min-w-[80px]">
-            <MessageSquare className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span className="hidden xs:inline">Chat</span>
-          </NeonButton>
+          <Link to="/appointments" className="flex-1 min-w-[80px]">
+            <NeonButton variant="ghost" size="sm" className="w-full">
+              <MessageSquare className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span className="hidden xs:inline">Chat</span>
+            </NeonButton>
+          </Link>
         </div>
       </GlassCard>
     </motion.div>
