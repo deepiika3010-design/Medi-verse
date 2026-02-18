@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowRight, Users } from "lucide-react";
 import { DoctorCard } from "./DoctorCard";
+import { NeonButton } from "@/components/ui/NeonButton";
 
 const doctors = [
   {
@@ -60,20 +63,30 @@ const doctors = [
 
 export function DoctorsList() {
   return (
-    <section className="py-12 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-16 px-4 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/5 to-transparent" />
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          className="flex flex-col sm:flex-row items-center justify-between mb-10 gap-4"
         >
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            Our <span className="text-primary text-glow">Expert Doctors</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
-            Connect with certified healthcare professionals available 24/7 for consultations
-          </p>
+          <div>
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
+              Our <span className="text-primary text-glow">Expert Doctors</span>
+            </h2>
+            <p className="text-muted-foreground text-sm sm:text-base">
+              Connect with certified healthcare professionals available 24/7
+            </p>
+          </div>
+          <Link to="/doctors">
+            <NeonButton variant="outline" size="sm">
+              <Users className="w-4 h-4" />
+              View All Doctors
+              <ArrowRight className="w-4 h-4" />
+            </NeonButton>
+          </Link>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -81,6 +94,21 @@ export function DoctorsList() {
             <DoctorCard key={index} {...doctor} />
           ))}
         </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-10"
+        >
+          <Link to="/doctors">
+            <NeonButton variant="primary">
+              Browse All 10,000+ Doctors
+              <ArrowRight className="w-4 h-4" />
+            </NeonButton>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
