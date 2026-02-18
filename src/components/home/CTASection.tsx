@@ -1,12 +1,19 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Phone, ArrowRight, Shield, Clock, HeartPulse } from "lucide-react";
+import { Phone, ArrowRight, Shield, Clock, HeartPulse, Users } from "lucide-react";
 import { NeonButton } from "@/components/ui/NeonButton";
 
 export function CTASection() {
   return (
     <section className="relative py-24 px-4 overflow-hidden">
-      {/* Background Gradient */}
+      {/* Medical facility background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: `url(https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=1920&h=600&fit=crop&q=80)`,
+          opacity: 0.07,
+        }}
+      />
       <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-cyan-500/10" />
       <div className="absolute inset-0 grid-pattern opacity-30" />
 
@@ -21,7 +28,6 @@ export function CTASection() {
           <div className="absolute -top-20 -right-20 w-40 h-40 bg-cyan-500/20 rounded-full blur-3xl" />
           <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-purple-500/20 rounded-full blur-3xl" />
 
-          {/* Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -44,14 +50,14 @@ export function CTASection() {
             </p>
 
             {/* Features */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
               {[
                 { icon: Clock, text: "Average response under 5 minutes" },
                 { icon: Shield, text: "Verified medical professionals" },
                 { icon: Phone, text: "24/7 emergency hotline" },
               ].map((item, index) => (
-                <div key={index} className="flex items-center justify-center gap-2 text-muted-foreground">
-                  <item.icon className="w-5 h-5 text-primary" />
+                <div key={index} className="flex items-center justify-center gap-2 p-3 rounded-xl bg-muted/20 border border-border text-muted-foreground">
+                  <item.icon className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm">{item.text}</span>
                 </div>
               ))}
@@ -69,6 +75,12 @@ export function CTASection() {
                 <NeonButton variant="outline" size="lg">
                   Schedule Consultation
                   <ArrowRight className="w-5 h-5" />
+                </NeonButton>
+              </Link>
+              <Link to="/doctors">
+                <NeonButton variant="ghost" size="lg">
+                  <Users className="w-5 h-5" />
+                  Browse Doctors
                 </NeonButton>
               </Link>
             </div>
